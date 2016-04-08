@@ -5,7 +5,7 @@
         var makeTable = function(path){
             $.getJSON('ftp.php?path='+path, function(data){
                 el.empty().append('<div class="btn-group">').find('.btn-group').append(function(){
-                    var res = new Array();
+                    var res = Array();
                     res.push('<button type="button" class="btn btn-default folder" data-path="/"><i class="glyphicon glyphicon-home"></i></button>');
                     var p='';
                     $.each(path.split('/'), function(i,v){
