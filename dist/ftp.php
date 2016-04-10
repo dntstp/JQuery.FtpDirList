@@ -6,7 +6,7 @@
 #
 ##############################
 $conf = new stdClass;
-$conf -> host = '101.25.1.252';
+$conf -> host = 'localhost';
 $conf -> port = 21;
 $conf -> timeout = 90;
 $conf -> username = 'anonymous';
@@ -32,7 +32,7 @@ header('Content-Type: application/json; charset=utf-8');
 try{
 	$ftp = ftp_connect($conf -> host, $conf -> port, $conf -> timeout);
 		if (!$ftp) throw new Exception ('could not connect.');
-	$r = ftp_login($ftp, "anonymous", "");
+	$r = ftp_login($ftp, $conf -> username, $conf -> password);
 		if (!$r) throw new Exception ('could not login.');
 	$r = ftp_pasv($ftp, true);
 		if (!$r) throw new Exception('could not enable passive mode.');
